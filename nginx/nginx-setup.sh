@@ -35,4 +35,6 @@ systemctl daemon-reload
 echo "Generating nginx PID file"
 /usr/local/nginx/sbin/nginx && /usr/local/nginx/sbin/nginx -s stop
 
-echo "All done!  Reboot the host using 'sudo reboot', and then run 'systemctl start nginx.service && systemctl enable nginx.service'"
+systemctl start nginx.service && systemctl enable nginx.service
+
+echo "All done!"
