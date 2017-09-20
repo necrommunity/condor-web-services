@@ -2,7 +2,7 @@
 adduser rtmp 
 
 echo "Installing dependencies and packages"
-apt-get install build-essential libpcre3 libpcre3-dev libssl-dev git sudo checkinstall policykit-1 certbot incron
+apt-get install build-essential libpcre3 libpcre3-dev libssl-dev git sudo checkinstall policykit-1 certbot incron -y
 echo "Creating and swapping to working directory"
 mkdir working && cd working
 
