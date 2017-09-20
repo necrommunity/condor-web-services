@@ -36,4 +36,5 @@ div.box {
   font-style:normal;
   font-family: "Tahoma", helvetica, arial, sans-serif;
   text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
