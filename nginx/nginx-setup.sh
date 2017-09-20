@@ -38,7 +38,7 @@ echo "Generating nginx PID file"
 systemctl start nginx.service && systemctl enable nginx.service
 
 echo "Downloading index and CSS file"
-cd /usr/local/nginx/html && rm index.html
-wget https://raw.githubusercontent.com/necrommunity/condor-web-services/master/nginx/index.css && wget https://raw.githubusercontent.com/necrommunity/condor-web-services/master/nginx/index.html && wget https://github.com/necrommunity/condor-web-services/raw/master/nginx/purplebg.jpg && wget https://github.com/necrommunity/condor-web-services/raw/master/nginx/favicon.ico
+cd /usr/local/nginx/html && rm index.html 
+wget https://raw.githubusercontent.com/necrommunity/condor-web-services/master/nginx/index.css && wget -o index.html "https://raw.githubusercontent.com/necrommunity/condor-web-services/master/nginx/ingest-index.html" && wget https://github.com/necrommunity/condor-web-services/raw/master/nginx/purplebg.jpg && wget https://github.com/necrommunity/condor-web-services/raw/master/nginx/favicon.ico
 
 echo "All done!"
