@@ -52,7 +52,7 @@ systemctl stop nginx.service
 echo "Copying configs"
 mkdir /mnt/rtmp
 scp rtmp@condor.host:"/mnt/rtmp/$host-rtmp.conf /mnt/rtmp/ingest-nginx.conf /mnt/rtmp/.htpasswd /mnt/rtmp/stat.xsl" /usr/local/nginx/conf
-cd /usr/local/nginx/conf && rm nginx.conf && mv ingest-nginx.conf nginx.conf 
+cd /usr/local/nginx/conf && rm nginx.conf && mv ingest-nginx.conf nginx.conf && mv stat.xsl ../html
 sed -i "s/XX/$host/g" nginx.conf
 
 echo "Starting Nginx"
