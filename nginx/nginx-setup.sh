@@ -41,6 +41,7 @@ read -p 'Enter location code (au/eu/use/usw): ' host
 echo "Downloading index and CSS file"
 cd /usr/local/nginx/html && rm index.html 
 wget https://raw.githubusercontent.com/necrommunity/condor-web-services/master/nginx/index.css && wget "https://raw.githubusercontent.com/necrommunity/condor-web-services/master/nginx/ingest-index.html" -O index.html && wget https://github.com/necrommunity/condor-web-services/raw/master/nginx/purplebg.jpg && wget https://github.com/necrommunity/condor-web-services/raw/master/nginx/favicon.ico
+sed -i "s/XX/${host^^}/g" index.html
 
 certbot certonly --webroot -w /usr/local/nginx/html -d $host.condor.host -d $host.condorleague.tv
 chmod -R 500 /etc/letsencrypt/live/$host.condor.host
@@ -50,7 +51,7 @@ systemctl stop nginx.service
 
 echo "Copying configs"
 mkdir /mnt/rtmp
-scp rtmp@condor.host:"/mnt/rtmp/$host-rtmp.conf /mnt/rtmp/ingest-nginx.conf /mnt/rtmp/.htpasswd" /usr/local/nginx/conf
+scp rtmp@condor.host:"/mnt/rtmp/$host-rtmp.conf /mnt/rtmp/ingest-nginx.conf /mnt/rtmp/.htpasswd /mnt/rtmp/stat.xsl" /usr/local/nginx/conf
 cd /usr/local/nginx/conf && rm nginx.conf && mv ingest-nginx.conf nginx.conf 
 sed -i "s/XX/$host/g" nginx.conf
 
