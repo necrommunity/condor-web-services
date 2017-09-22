@@ -46,15 +46,16 @@ sed -i "s/XX/$host/g" index.html
 certbot certonly --webroot -w /usr/local/nginx/html -d $host.condor.host -d $host.condorleague.tv
 chmod -R 500 /etc/letsencrypt/live/$host.condor.host
 
-"Stopping Nginx"
+echo "Stopping Nginx"
 systemctl stop nginx.service
 
-"Copying configs"
+echo "Copying configs"
 mkdir /mnt/rtmp
 scp rtmp@condor.host:"/mnt/rtmp/$host-rtmp.conf /mnt/rtmp/ingest-nginx.conf /mnt/rtmp/.htpasswd" /usr/local/nginx/conf
-cd /usr/local/nginx/conf && rm nginx.conf && mv $host.conf nginx.conf 
+cd /usr/local/nginx/conf && rm nginx.conf && mv ingest-nginx.conf nginx.conf 
+sed -i "s/XX/$host/g" nginx.conf
 
-"Starting Nginx"
+echo "Starting Nginx"
 systemctl start nginx
 
 #crontab -e
