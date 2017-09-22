@@ -47,13 +47,11 @@ certbot certonly --webroot -w /usr/local/nginx/html -d $host.condor.host -d $hos
 chmod -R 500 /etc/letsencrypt/live/$host.condor.host
 
 "Stopping Nginx"
-systemctl stop nginx
+systemctl stop nginx.service
 
 "Copying configs"
 mkdir /mnt/rtmp
-scp rtmp@condor.host:/mnt/rtmp/$host.conf /usr/local/nginx/conf
-scp rtmp@condor.host:/mnt/rtmp/ingest-nginx.conf /usr/local/nginx/conf
-scp rtmp@condor.host:/mnt/rtmp/.htpasswd /usr/local/nginx/conf
+scp rtmp@condor.host:"/mnt/rtmp/$host-rtmp.conf /mnt/rtmp/ingest-nginx.conf /mnt/rtmp/.htpasswd" /usr/local/nginx/conf
 cd /usr/local/nginx/conf && rm nginx.conf && mv $host.conf nginx.conf 
 
 "Starting Nginx"
