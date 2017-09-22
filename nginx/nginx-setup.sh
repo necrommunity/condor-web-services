@@ -2,7 +2,7 @@
 adduser rtmp 
 
 echo "Installing dependencies and packages"
-apt-get install build-essential libpcre3 libpcre3-dev libssl-dev git sudo checkinstall policykit-1 certbot incron -y
+apt-get install build-essential libpcre3 libpcre3-dev libssl-dev git sudo checkinstall policykit-1 certbot incron apache2-utils -y
 echo "Creating and swapping to working directory"
 mkdir working && cd working
 
@@ -37,9 +37,6 @@ echo "Generating nginx PID file"
 
 systemctl start nginx.service && systemctl enable nginx.service
 
-"Stopping Nginx"
-systemctl stop nginx
-
 read -p 'Enter location code (au/eu/use/usw): ' host
 echo "Downloading index and CSS file"
 cd /usr/local/nginx/html && rm index.html 
@@ -49,9 +46,14 @@ sed -i "s/XX/$host/g" index.html
 certbot certonly --webroot -w /usr/local/nginx/html -d $host.condor.host -d $host.condorleague.tv
 chmod -R 500 /etc/letsencrypt/live/$host.condor.host
 
+"Stopping Nginx"
+systemctl stop nginx
+
 "Copying configs"
 mkdir /mnt/rtmp
-scp rtmp@condor.host:/mnt/rtmp/$host/*.conf /usr/local/nginx/conf
+scp rtmp@condor.host:/mnt/rtmp/$host.conf /usr/local/nginx/conf
+scp rtmp@condor.host:/mnt/rtmp/ingest-nginx.conf /usr/local/nginx/conf
+scp rtmp@condor.host:/mnt/rtmp/.htpasswd /usr/local/nginx/conf
 cd /usr/local/nginx/conf && rm nginx.conf && mv $host.conf nginx.conf 
 
 "Starting Nginx"
