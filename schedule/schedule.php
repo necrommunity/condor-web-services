@@ -31,8 +31,8 @@
 </head>
 <body>
 <div class="table-title">
-<h3>CoNDOR Season 6 Schedule</h3>
-<h4><a href='http://s6stats.condorleague.tv' target='_blank'>S6 Stats sheet</a> | <a href='http://condor.challonge.com/s6wonder' target='_blank'>Wonder Cup bracket</a> | <a href='http://condor.challonge.com/s6becoming' target='_blank' | <a href='http://condor.challonge.com/s6becoming' target='_blank'>Becoming Cup bracket</a> | <a href='https://condor.host/stat' target='_blank'>Live RTMP racers</a></h4>
+<h3>CoNDUIT 22</h3>
+<h4><a href='http://stats.condorleague.tv' target='_blank'>Stats sheet</a> | <a href='https://condor.host/stat' target='_blank'>Live RTMP racers</a></h4>
 
 <?php
 
@@ -177,16 +177,16 @@ $("#searchInput").keyup(function () {
     }
    }
 
-   if ($name == 'Type'){
-    if ($value == 'Wonder'){
-      $value = '<img title="Wonder" src="/img/images/wonder.png"/> Cup';
-    } elseif ($value == 'Becoming') {
-      $value = '<img title="Becoming" src="/img/images/becoming.png"/> Cup';
-    } 
-    // elseif ($value == 'Season 6') {
-    //   $value = '<img title="Season 6" src="/img/images/pixelheart.png"/>';
-    // }
-   }
+   // if ($name == 'Type'){
+   //  if ($value == 'Wonder'){
+   //    $value = '<img title="Wonder" src="/img/images/wonder.png"/> Cup';
+   //  } elseif ($value == 'Becoming') {
+   //    $value = '<img title="Becoming" src="/img/images/becoming.png"/> Cup';
+   //  } 
+   //  elseif ($value == 'Season 6') {
+   //    $value = '<img title="Season 6" src="/img/images/pixelheart.png"/>';
+   //  }
+   // }
 
    if ($name == 'Cawmentary' && $value != 'Unclaimed'){
     $valueCaw = $value;
