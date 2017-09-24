@@ -31,8 +31,8 @@
 </head>
 <body>
 <div class="table-title">
-<h3>CoNDUIT 22</h3>
-<h4><a href='http://stats.condorleague.tv' target='_blank'>Stats sheet</a> | <a href='https://condor.host/stat' target='_blank'>Live RTMP racers</a></h4>
+<h3>CoNDUIT 22 Schedule</h3>
+<h4><a href='http://stats.condorleague.tv' target='_blank'>Stats sheet</a> | <a href='https://condor.host/standings' target='_blank'>Standings</a> | <a href='https://condor.host/stat' target='_blank'>Live RTMP racers</a></h4>
 
 <?php
 
