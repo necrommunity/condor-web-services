@@ -109,10 +109,6 @@ th:nth-child(2) {
   text-align: right;
 }
 
-th:nth-child(3) {
-  text-align: center;
-}
-
 th:last-child {
   border-top-right-radius:3px;
   border-right:none;
@@ -188,6 +184,10 @@ td img {
 
 td:nth-child(2) {
  text-align: right; 
+}
+
+td:nth-child(2) {
+ text-align: center; 
 }
 
 td:last-child {
