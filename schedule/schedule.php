@@ -158,23 +158,27 @@ $("#searchInput").keyup(function () {
   }
   }
    if ($name == 'Racer 1'){
-    $valueR1 = strstr($value,' ',true);
+    $valueR1 = $value;
 
-    if (substr($valueR1,-1) == ")") {
-    $valueR1Trim = substr($valueR1,0,-4);
-    } else {
-      $valueR1Trim = $valueR1;
-    }
+    // $valueR1 = strstr($value,' ',true);
+
+    // if (substr($valueR1,-1) == ")") {
+    // $valueR1Trim = substr($valueR1,0,-4);
+    // } else {
+    //   $valueR1Trim = $valueR1;
+    // }
     }
 
    if ($name == 'Racer 2'){
-    $valueR2 = strstr($value,' ',true);
+    $valueR2 = $value;
 
-    if (substr($valueR2,-1) == ")") {
-    $valueR2Trim = substr($valueR2,0,-3); 
-    } else {
-      $valueR2Trim = $valueR2;
-    }
+    // $valueR2 = strstr($value,' ',true);
+
+    // if (substr($valueR2,-1) == ")") {
+    // $valueR2Trim = substr($valueR2,0,-3); 
+    // } else {
+    //   $valueR2Trim = $valueR2;
+    // }
    }
 
    // if ($name == 'Type'){
@@ -190,9 +194,9 @@ $("#searchInput").keyup(function () {
 
    if ($name == 'Cawmentary' && $value != 'Unclaimed'){
     $valueCaw = $value;
-    $value = "<a href='https://condor.host/macsg/rtmp,$valueR1Trim,$valueR2Trim' target='_blank'>MacSG</a> | 📺 <a href='https://twitch.tv/$valueCaw' target='_blank'>$valueCaw</a>";
+    $value = "<a href='https://condor.host/macsg/rtmp,$valueR1,$valueR2' target='_blank'>MacSG</a> | 📺 <a href='https://twitch.tv/$valueCaw' target='_blank'>$valueCaw</a>";
    }elseif ($name == 'Cawmentary' && $value == 'Unclaimed'){
-    $value = "<a href='https://condor.host/macsg/rtmp,$valueR1Trim,$valueR2Trim' target='_blank'>MacSG</a> | <a href='https://rtmp.condorleague.tv/#$valueR1/$valueR2,,,,cawmunity' target='_blank'>Unclaimed</a>";
+    $value = "<a href='https://condor.host/macsg/rtmp,$valueR1,$valueR2' target='_blank'>MacSG</a> | <a href='https://rtmp.condorleague.tv/#$valueR1/$valueR2,,,,cawmunity' target='_blank'>Unclaimed</a>";
    }
    print " <td $colspan>$value</td>";
       } // end field loop
